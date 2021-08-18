@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinenAndBird", "LinenAndBird\LinenAndBird.csproj", "{72A9148E-940E-4ECA-8EA3-E61E1E973420}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72A9148E-940E-4ECA-8EA3-E61E1E973420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A9148E-940E-4ECA-8EA3-E61E1E973420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A9148E-940E-4ECA-8EA3-E61E1E973420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A9148E-940E-4ECA-8EA3-E61E1E973420}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66418956-5023-4D28-AFCC-6FCCEB021C11}
+	EndGlobalSection
+EndGlobal

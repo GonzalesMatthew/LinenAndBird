@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LinenAndBird.Models
 {
-    public class CreateOrder
+    public class CreateOrderCommand
     {
         public Guid BirdId { get; set; }
         public Guid HatId { get; set; }

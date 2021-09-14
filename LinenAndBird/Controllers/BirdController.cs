@@ -24,6 +24,19 @@ namespace LinenAndBird.Controllers
             return Ok(_repo.GetAll());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetBirdById(Guid id)
+        {
+            var bird = _repo.GetById(id);
+
+            if (bird == null)
+            {
+                return NotFound($"No bird with the id {id} was found.");
+            }
+
+            return Ok(bird);
+        }
+
         [HttpPost]
         public IActionResult AddBird(Bird newBird) //IActionResult is an interface -- allows us to have granular controller over what we are returning at any given point in time. Otherwise we only return 200's or 500's
         {

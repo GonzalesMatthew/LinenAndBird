@@ -48,7 +48,32 @@ namespace LinenAndBird.Controllers
             _repo.Add(newBird);
 
             //return Ok(); //Ok() method comes from the base class, returns ok result - an empty 200()
-            return Created("/api/bird/1)", newBird); //201 status code, includes varying amounts of specificity on how we are good
+            return Created($"/api/bird/{newBird.Id})", newBird); //201 status code, includes varying amounts of specificity on how we are good
+        }
+
+        //api/birds/{id}
+        [HttpDelete]
+        public IActionResult DeleteBird(Guid id)
+        {
+            _repo.Remove(id);
+
+            return Ok();
+        }
+
+        //api/birds/{id}
+        [HttpPut("{id}")]
+        public IActionResult UpdateBird(Guid id, Bird bird)
+        {
+            var birdToUpdate = _repo.GetById(id);
+
+            if (birdToUpdate == null)
+            {
+                return NotFound($"Could not find bird with the id {id} for updating");
+            }
+
+            var updatedBird = _repo.Update(id, bird);
+
+            return Ok(updatedBird);
         }
     }
 }

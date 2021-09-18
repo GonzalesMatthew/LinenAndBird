@@ -14,3 +14,10 @@ from birds b
 
 select * from birds;
 select * from orders;
+
+update Birds
+Set Color = @color,
+	Name = @name,
+	Type = @type,
+	Size = @size,
+Where Id = @id

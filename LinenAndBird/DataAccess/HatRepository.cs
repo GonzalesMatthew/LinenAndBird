@@ -3,11 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using Dapper;
 
 namespace LinenAndBird.DataAccess
 {
     public class HatRepository
     {
+        const string _connectionString = "Server=localhost; Database=LinenAndBird; Trusted_Connection=true;";
+
         // this is a _field
         static List<Hat> _hats = new List<Hat>
             {
@@ -36,8 +40,17 @@ namespace LinenAndBird.DataAccess
 
         internal Hat GetById(Guid hatId)
         {
-            return _hats.FirstOrDefault(hat => hat.Id == hatId);
+            //create connection
+            using var db = new SqlConnection(_connectionString);
+
+                                          //the data type we want back (so we need those columns)
+            var hat = db.QueryFirstOrDefault<Hat>("Select * from Hats where Id = @id", new { id = hatId });
+
+            return hat;
+
+            //return _hats.FirstOrDefault(hat => hat.Id == hatId);
         }
+
         internal List<Hat> GetAll() // 'internal' means anyone can use this inside the project. Fine in this case
         {
             return _hats;

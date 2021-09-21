@@ -23,6 +23,28 @@ namespace LinenAndBird.Controllers
             _hatRepo = new HatRepository();
             _orderRepo = new OrdersRepository();
         }
+
+        [HttpGet]
+        public IActionResult GetAllOrders()
+        {
+            return Ok(_orderRepo.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrderById(Guid id)
+        {
+            Order order = _orderRepository.Get(id);
+
+            if (order == null)
+            {
+                return NotFound("No order exists with that id");
+            }
+
+            return Ok(order);
+            
+        }
+
+
         //[HttpPost("bird/{birdId}/hat{hatId}/{price}")] // could do this, but a better way is to create a model specifically for this
 
         //public IActionResult CreateOrder(Guid birdId, Guid hatId, double price)

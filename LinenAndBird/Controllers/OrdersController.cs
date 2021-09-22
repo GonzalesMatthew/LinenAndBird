@@ -17,11 +17,11 @@ namespace LinenAndBird.Controllers
         HatRepository _hatRepo;
         OrdersRepository _orderRepo;
 
-        public OrdersController()
+        public OrdersController(BirdRepository birdRepo, HatRepository hatRepo, OrdersRepository ordersRepo)
         {
-            _birdRepo = new BirdRepository();
-            _hatRepo = new HatRepository();
-            _orderRepo = new OrdersRepository();
+            _birdRepo = birdRepo;
+            _hatRepo = hatRepo;
+            _orderRepo = ordersRepo;
         }
 
         [HttpGet]

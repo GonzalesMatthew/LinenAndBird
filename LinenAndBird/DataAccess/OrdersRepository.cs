@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 // add these two using statements below
 using Microsoft.Data.SqlClient;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 
 namespace LinenAndBird.DataAccess
 {
     public class OrdersRepository
     {
-        const string _connectionString = "Server=localhost; Database=LinenAndBird; Trusted_Connection=true;";
+        string _connectionString;
         //static List<Order> _orders = new List<Order>();
+        public OrdersRepository(IConfiguration config)
+        {
+            _connectionString = config.GetConnectionString("LinenAndBird");
+        }
 
         //return a collection of things
         internal IEnumerable<Order> GetAll() 
